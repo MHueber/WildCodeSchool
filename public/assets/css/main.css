@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+header {
+    background: #f4f4f4;
+    text-align: center;
+    padding: 2em;
+}
+
+header img {
+    max-width: 96px;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.new-member-form {
+    margin: 2em 0 4em 0;
+}
+
+.member-item {
+    padding: 0.25em 0;
+    background-color: #f4f4f4;
+    -webkit-box-shadow: 4px 4px 5px -5px rgba(0, 0, 0, 0.88);
+    box-shadow: 4px 4px 5px -5px rgba(0, 0, 0, 0.88);
+}
+
+footer {
+    margin-top: 2em;
+    text-align: center;
+    color: #fff;
+    background: #f76c6c;
+    padding: 0.25em 0;
+}
+
+#argonaute {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#argonaute_status {
+    margin: 0 0 0 20px;
+    background-color: #f76c6c;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}
+
+button {
+    margin: 20px 0;
+    background-color: #f76c6c;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}
+
+input {
+    max-width: 150px;
+}
+
+.crew {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.people {
+    background-color: #f76c6c;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 30%;
+    margin: 5px;
+    -webkit-box-shadow: 4px 4px 5px -5px rgba(0, 0, 0, 0.88);
+    box-shadow: 4px 4px 5px -5px rgba(0, 0, 0, 0.88);
+    color: white;
+    border-radius: 5px;
+}
+
+.people:hover {
+    background-color: crimson;
+}
+
+.color-black {
+    color: black;
+    margin-right: 20px;
+}
+
+.flash {
+    background-color: green;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    padding: 10px;
+    width: 15%;
+}
+
+ul {
+    background-color: #f4f4f4;
+    -webkit-box-shadow: 4px 4px 5px -5px rgba(0, 0, 0, 0.88);
+    box-shadow: 4px 4px 5px -5px rgba(0, 0, 0, 0.88);
+    padding: 5px;
+    border-radius: 5px;
+}

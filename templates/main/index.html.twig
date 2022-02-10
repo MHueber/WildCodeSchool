@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+    <!-- Main section -->
+    <body>
+        <main>
+            <!-- New member form -->
+            <section class="new-member-form">
+                <h2>Ajouter un(e) Argonaute</h2>
+                {{ form_start(argonauteForm) }}
+                {{ form_widget(argonauteForm) }}
+                <button type="submit">Envoyer</button>
+                {{ form_end(argonauteForm) }}
+            </section>
+
+            <!-- Member list -->
+            <section class="member-item">
+                <h2>Membres de l'équipage</h2>
+                <div class="crew">
+                    {% for argonaute in argonautes %}
+                        <div class="people">
+                            <h3>{{ argonaute.name}}</h3>
+                            {% if argonaute.skillOne | length > 0 %}
+                                <p class="skills"><span class="color-black">Trait particulier:</span>{{ argonaute.skillOne }}</p>
+                            {% endif %}
+                            {% if argonaute.skillTwo | length > 0 %}
+                            <p class="skills"><span class="color-black">Trait particulier: </span>{{ argonaute.skillTwo }}</p>
+                            {% endif %}
+                            {% if argonaute.skillThree | length > 0 %}
+                            <p class="skills"><span class="color-black">Trait particulier: </span>{{ argonaute.skillThree }}</p>
+                            {% endif %}
+                            <p class="status"><span class="color-black">Statut:</span>{{ argonaute.status }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </body>
+{% endblock %}
