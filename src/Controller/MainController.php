@@ -32,7 +32,7 @@ class MainController extends AbstractController
 
             // Ajout d'un message flash et reirection sur la même page.
             $this->addFlash('success','Argonaute ajouté avec succès.');
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('homepage');
         }
 
         // Affichage des Argonautes en BDD
