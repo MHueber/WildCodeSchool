@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function index(EntityManagerInterface $em, ArgonauteRepository $argonauteRepository, Request $request): Response
     {
