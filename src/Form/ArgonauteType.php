@@ -54,9 +54,8 @@ class ArgonauteType extends AbstractType
             ->add('status', ChoiceType::class, [
                 'label' => 'Statut du passager',
                 'choices' => [
-                    'En vie' => 'En vie',
-                    'Décédé' => 'Décédé',
-                    'Inconnu' => 'Inconnu'
+                    'Femme' => 'Femme',
+                    'Homme' => 'Homme'
                 ]
             ])
         ;

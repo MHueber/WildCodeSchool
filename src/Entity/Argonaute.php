@@ -48,7 +48,7 @@ class Argonaute
     private $photo;
 
     /**
-     * @Assert\Choice(choices={"En vie", "Décédé", "Inconnu"})
+     * @Assert\Choice(choices={"Femme", "Homme"})
      * @ORM\Column(type="string", length=255)
      */
     private $Status;
