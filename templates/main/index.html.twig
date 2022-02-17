@@ -1,41 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Bienvenue dans l'application Argonaute{% endblock %}
 
 {% block body %}
     <!-- Main section -->
     <body>
         <main>
-            <!-- New member form -->
-            <section class="new-member-form">
-                <h2>Ajouter un(e) Argonaute</h2>
-                {{ form_start(argonauteForm) }}
-                {{ form_widget(argonauteForm) }}
-                <button type="submit">Envoyer</button>
-                {{ form_end(argonauteForm) }}
-            </section>
+            {% if app.user %}
+                {% if is_granted("ROLE_ADMIN") %}
+                    <!-- New member form -->
+                    <section class="new-member-form">
+                        <h2>Ajouter un(e) Argonaute</h2>
+                        {{ form_start(argonauteForm) }}
+                        {{ form_widget(argonauteForm) }}
+                        <button type="submit">Envoyer</button>
+                        {{ form_end(argonauteForm) }}
+                </section>
+                {% endif %}
+                <div>
+                    <a href="{{ path('app_logout') }}" title="Logout">Se déconnecter ({{ app.user.firstname }}) </a>
+                </div>
 
             <!-- Member list -->
-            <section class="member-item">
-                <h2>Membres de l'équipage</h2>
-                <div class="crew">
-                    {% for argonaute in argonautes %}
-                        <div class="people">
-                            <h3>{{ argonaute.name}}</h3>
-                            {% if argonaute.skillOne | length > 0 %}
-                                <p class="skills"><span class="color-black">Trait particulier:</span>{{ argonaute.skillOne }}</p>
-                            {% endif %}
-                            {% if argonaute.skillTwo | length > 0 %}
-                            <p class="skills"><span class="color-black">Trait particulier: </span>{{ argonaute.skillTwo }}</p>
-                            {% endif %}
-                            {% if argonaute.skillThree | length > 0 %}
-                            <p class="skills"><span class="color-black">Trait particulier: </span>{{ argonaute.skillThree }}</p>
-                            {% endif %}
-                            <p class="status"><span class="color-black">Statut:</span>{{ argonaute.status    }}</p>
-                        </div>
-                    {% endfor %}
+                <section class="member-item">
+                    <h2>Membres de l'équipage</h2>
+                    <div class="crew">
+                        {% for argonaute in argonautes %}
+                            <div class="people">
+                                <h3>{{ argonaute.name}}</h3>
+                                {% if argonaute.skillOne | length > 0 %}
+                                    <p class="skills"><span class="color-black">Trait particulier:</span>{{ argonaute.skillOne }}</p>
+                                {% endif %}
+                                {% if argonaute.skillTwo | length > 0 %}
+                                <p class="skills"><span class="color-black">Trait particulier: </span>{{ argonaute.skillTwo }}</p>
+                                {% endif %}
+                                {% if argonaute.skillThree | length > 0 %}
+                                <p class="skills"><span class="color-black">Trait particulier: </span>{{ argonaute.skillThree }}</p>
+                                {% endif %}
+                                <p class="status"><span class="color-black">Statut:</span>{{ argonaute.status    }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            {% else %}
+                <div>
+                    <p>Merci de vous enregistrer ou de vous connecter pour voir l'équipage des argonautes</p>
                 </div>
-            </section>
+                <a href="{{ path('app_login') }}" title="login">S'identifier</a>
+                <a href="{{ path('app_register') }}" title="create account">S'enregistrer</a>
+            {% endif %}
         </main>
     </body>
 {% endblock %}
